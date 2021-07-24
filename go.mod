@@ -1,4 +1,4 @@
-module github.com/devplayer0/docker-net-dhcp
+module github.com/rufoa/docker-net-dhcp
 
 go 1.16
 
