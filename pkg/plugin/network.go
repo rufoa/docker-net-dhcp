@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"net"
+	"time"
 
 	dTypes "github.com/docker/docker/api/types"
 	"github.com/mitchellh/mapstructure"
@@ -124,6 +125,9 @@ func vethPairNames(id string) (string, string) {
 
 func (p *Plugin) netOptions(ctx context.Context, id string) (DHCPNetworkOptions, error) {
 	dummy := DHCPNetworkOptions{}
+
+	time.Sleep(120 * time.Second)
+	log.Debug("Done sleeping")
 
 	n, err := p.docker.NetworkInspect(ctx, id, dTypes.NetworkInspectOptions{})
 	if err != nil {
